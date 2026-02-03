@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Hurricane John</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+        <script src="../Data/hPts.js" ></script>
+    </head>
+<body>
+    <div id="mapid"></div>
+
+    <style>
+
+        #mapid{ width: 1000px; height: 900px; }
+    </style>
+
+    <script>
+
+        var map = L.map('mapid').setView([19.95595919, -114.89719472937608], 6);
+
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+}).addTo(map);
+
+ var customPopup = "Hurricane John<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/John_2024-09-24_0150Z.jpg/500px-John_2024-09-24_0150Z.jpg' width='100px'/>";
+
+var size = 20
+
+function makeIcon(size) {
+        var dim = size
+        var uncIcon = L.icon({    // notice the L.icon which is a Leaflet object with properties
+        iconUrl: 'https://pngimg.com/uploads/hurricane/hurricane_PNG10.png',   
+          // this points to a jpg image obtained from the internet
+        iconSize: [dim,dim], // size of the icon
+        popupAnchor: [0,0] // where the icon is located relative to the lat lon of the point. 
+        });
+    return uncIcon
+    }
+
+        L.geoJSON(Hurricane, {   
+    pointToLayer: function (feature, latlng) { 
+    return L.marker(latlng, {icon: makeIcon(feature.properties.INTENSITY)});}}) // c
+    .bindPopup(customPopup) 
+    .addTo(map); 
+    </script>
+</body>
+</html>
