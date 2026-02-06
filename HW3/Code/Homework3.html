@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Bass Lake Waterfowl</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+        <script src="../Data/waterfowl_BassLake.geojson" ></script>
+    </head>
+    <body>
+    This is not as hard as I thought. 
+    <div id="mapid"></div>
+    
+    <style>
+        #mapid{ width: 900px; height: 600px; }
+    </style>
+    <script>  
+
+
+    var map = L.map('mapid').setView([35.638, -78.9], 15.5); // YOU CAN CHANGE THE ZOOM
+
+    // this line is creating the variable map by  initializing the L.map class (a Leaflet class) with the mapid element that we created before. setView is a method that can be applied to the class L.map : you can give it a latitude, longitude and a zoom.  The higher the value of the zoom, the finer the initial scale of the map. 
+
+   var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+    var Esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+});
+ 
+    L.marker([35.64, -78.80]).addTo(map)
+        .bindPopup('Hey I am at Bass Lake') // YOU CAN CHANGE THE MESSAGE
+        .openPopup();
+    
+    
+    function circleIcon (species){
+        var geojsonMarkerOptions = {
+        radius: 7,
+        fillColor: getSpeciesColor(species),
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: .8
+        };
+        return geojsonMarkerOptions;
+};
+
+    var customPopup = "UNC Well<br/><img src='../data/Beryl 2024-07-02 1230Z - Hurricane Beryl - Wikipedia_files/Beryl_2024-07-02_1230Z_003.jpg' width='100px'/>";
+   
+  var myGeoJSON =  L.geoJSON(bassLake, {
+    pointToLayer: function (feature, latlng) {
+        var species = feature.properties.species_guess;
+        return L.circleMarker(latlng,  circleIcon(species)).bindPopup(getSpeciesName(feature.properties.species_guess));
+    }
+        }).addTo(map); 
+    
+    // ternary operator 
+    // condition ? valueIfTrue : valueIfFalse;
+
+    function getSpeciesName(species_guess) {
+  return ( species_guess == "Mallard") ? "Mallard" :
+    (species_guess == "Domestic Mallard")  ? "Domestic Duck" :
+    (species_guess == "Redhead") ? "Redhead" :
+    (species_guess == "Ruddy Duck") ? "Ruddy Duck" :
+    (species_guess == "Canada Goose") ? "Canada Goose" :
+    (species_guess == "Hooded Merganser") ? "Hooded Merganser" :
+    species_guess;
+}
+
+  function getSpeciesColor(species_guess) {
+  return ( species_guess == "Mallard") ? "#009933" :
+    (species_guess == "Domestic Mallard")  ? "#996633" :
+    (species_guess == "Redhead") ? "#ff4631" :
+    (species_guess == "Ruddy Duck") ? "#85b8ff" :
+    (species_guess == "Canada Goose") ? "#686868" :
+    (species_guess == "Hooded Merganser") ? "#000000" :
+    "#f8f8f8"; 
+}
+
+var baseMaps = {
+    "OpenStreetMap": osm,
+    "Esri": Esri
+};
+
+var overlayMaps = {
+    "Waterfowl": myGeoJSON
+};
+
+var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map)
+osm.addTo(map)
+myGeojson.addTo(map)
+
+    // end of script
+    </script>
+    </body>
+</html>

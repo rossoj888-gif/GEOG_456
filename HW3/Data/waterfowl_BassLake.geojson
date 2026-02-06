@@ -1,0 +1,1383 @@
+
+var bassLake = 
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.807275024,35.6334129778 ]
+    },
+    "properties": {
+    "id":145801421,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":147816677,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":149242082,
+    "place_guess":"900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Ruddy Duck",
+    "scientific_name":"Oxyura jamaicensis",
+    "common_name":"Ruddy Duck",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":850859
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":149242084,
+    "place_guess":"900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":149242092,
+    "place_guess":"900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Domestic Mallard",
+    "scientific_name":"Anas platyrhynchos domesticus",
+    "common_name":"Domestic Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":236935
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8074283333,35.6343116667 ]
+    },
+    "properties": {
+    "id":149737728,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":150041227,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":150041236,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8073904,35.6414775 ]
+    },
+    "properties": {
+    "id":156594191,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Canard colvert",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.80559955,35.63785545 ]
+    },
+    "properties": {
+    "id":158594771,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Domestic Mallard",
+    "scientific_name":"Anas platyrhynchos domesticus",
+    "common_name":"Domestic Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":236935
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8042760082,35.6425131206 ]
+    },
+    "properties": {
+    "id":161810905,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.804473309,35.642582486 ]
+    },
+    "properties": {
+    "id":161833099,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8064589073,35.642034933 ]
+    },
+    "properties": {
+    "id":161833141,
+    "place_guess":"Mills Lake Wynd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8062208,35.6352589997 ]
+    },
+    "properties": {
+    "id":161854452,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061,35.642231 ]
+    },
+    "properties": {
+    "id":161911899,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Pato norteño",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052222222,35.6426555556 ]
+    },
+    "properties": {
+    "id":165083762,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8072413,35.6415551997 ]
+    },
+    "properties": {
+    "id":174684153,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.806683785,35.6418853833 ]
+    },
+    "properties": {
+    "id":176140274,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.806305,35.63795 ]
+    },
+    "properties": {
+    "id":177752451,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8056873843,35.6397701854 ]
+    },
+    "properties": {
+    "id":177752515,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061616667,35.6352883333 ]
+    },
+    "properties": {
+    "id":179906077,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061616667,35.6352466667 ]
+    },
+    "properties": {
+    "id":179906091,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8083922744,35.6394168892 ]
+    },
+    "properties": {
+    "id":192951890,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8062708069,35.6387708444 ]
+    },
+    "properties": {
+    "id":196911816,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":197895337,
+    "place_guess":"Bass Lake Park, 900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":200984643,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":200984725,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":200984745,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":200985040,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":200986491,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061833333,35.63532 ]
+    },
+    "properties": {
+    "id":201412143,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.80535,35.6390716667 ]
+    },
+    "properties": {
+    "id":203256049,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8071583333,35.6336833333 ]
+    },
+    "properties": {
+    "id":203656678,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8069616667,35.6417833333 ]
+    },
+    "properties": {
+    "id":203657635,
+    "place_guess":"Mills Lake Wynd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.80687,35.64182 ]
+    },
+    "properties": {
+    "id":203657650,
+    "place_guess":"Mills Lake Wynd, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8072283333,35.6371583333 ]
+    },
+    "properties": {
+    "id":204435576,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":206386042,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061969997,35.6352593 ]
+    },
+    "properties": {
+    "id":208931443,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8083276525,35.6399683138 ]
+    },
+    "properties": {
+    "id":210997010,
+    "place_guess":"Natures Reach, Holly Springs, NC 27540, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":213376143,
+    "place_guess":"Bass Lake Park, 900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8028479728,35.6426717524 ]
+    },
+    "properties": {
+    "id":213786263,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8064087732,35.6380349899 ]
+    },
+    "properties": {
+    "id":213845973,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8064509,35.6420357 ]
+    },
+    "properties": {
+    "id":225113036,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8043914,35.6426761 ]
+    },
+    "properties": {
+    "id":230614214,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Domestic Mallard",
+    "scientific_name":"Anas platyrhynchos domesticus",
+    "common_name":"Domestic Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":236935
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8043772,35.6426604997 ]
+    },
+    "properties": {
+    "id":230614392,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8064274062,35.6353830082 ]
+    },
+    "properties": {
+    "id":231281194,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8068789354,35.6340852305 ]
+    },
+    "properties": {
+    "id":231281201,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8055361435,35.6426129324 ]
+    },
+    "properties": {
+    "id":239702993,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.804955,35.6426283333 ]
+    },
+    "properties": {
+    "id":241718303,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8049978577,35.6425283337 ]
+    },
+    "properties": {
+    "id":243463446,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.808075,35.6406466667 ]
+    },
+    "properties": {
+    "id":246840817,
+    "place_guess":"Stephen Springs Ct, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.80748,35.6405533333 ]
+    },
+    "properties": {
+    "id":246845204,
+    "place_guess":"Stephen Springs Ct, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8064033333,35.634875 ]
+    },
+    "properties": {
+    "id":252203236,
+    "place_guess":"Mistyridge Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8066033333,35.64193 ]
+    },
+    "properties": {
+    "id":253328447,
+    "place_guess":"Mills Lake Wynd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8047637778,35.6427268889 ]
+    },
+    "properties": {
+    "id":257733975,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8057419318,35.6423703119 ]
+    },
+    "properties": {
+    "id":257809935,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8060083333,35.6420633333 ]
+    },
+    "properties": {
+    "id":260190516,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Ruddy Duck",
+    "scientific_name":"Oxyura jamaicensis",
+    "common_name":"Ruddy Duck",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":850859
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8060133333,35.64207 ]
+    },
+    "properties": {
+    "id":260190527,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Ruddy Duck",
+    "scientific_name":"Oxyura jamaicensis",
+    "common_name":"Ruddy Duck",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":850859
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":263218107,
+    "place_guess":"Bass Lake Park, 900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.805695,35.6424416667 ]
+    },
+    "properties": {
+    "id":265220114,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Ruddy Duck",
+    "scientific_name":"Oxyura jamaicensis",
+    "common_name":"Ruddy Duck",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":850859
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8081314749,35.639928663 ]
+    },
+    "properties": {
+    "id":265246589,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8055716667,35.6423866667 ]
+    },
+    "properties": {
+    "id":265327159,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.80748,35.640995 ]
+    },
+    "properties": {
+    "id":267105777,
+    "place_guess":"Stephen Springs Ct, Holly Springs, NC, US",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8053436279,35.6424827576 ]
+    },
+    "properties": {
+    "id":274674838,
+    "place_guess":"Holly Springs",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8052199,35.6425713 ]
+    },
+    "properties": {
+    "id":276234789,
+    "place_guess":"Bass Lake Park, 900 Bass Lake Rd, Holly Springs, NC 27540, USA",
+    "species_guess":"Hooded Merganser",
+    "scientific_name":"Lophodytes cucullatus",
+    "common_name":"Hooded Merganser",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7109
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.807205,35.63377 ]
+    },
+    "properties": {
+    "id":279485076,
+    "place_guess":"Bass Lake, Holly Springs, NC, US",
+    "species_guess":"Hooded Merganser",
+    "scientific_name":"Lophodytes cucullatus",
+    "common_name":"Hooded Merganser",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7109
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8057633333,35.6425166667 ]
+    },
+    "properties": {
+    "id":282794691,
+    "place_guess":"Bass Lake Rd, Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061807045,35.6418035111 ]
+    },
+    "properties": {
+    "id":283035652,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8071656678,35.6343544668 ]
+    },
+    "properties": {
+    "id":283035662,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8071347233,35.6334956574 ]
+    },
+    "properties": {
+    "id":283035666,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8064071909,35.6406655796 ]
+    },
+    "properties": {
+    "id":288893704,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Domestic Mallard",
+    "scientific_name":"Anas platyrhynchos domesticus",
+    "common_name":"Domestic Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":236935
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8062285081,35.6350787119 ]
+    },
+    "properties": {
+    "id":295495440,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":311419828,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8067885,35.6364942 ]
+    },
+    "properties": {
+    "id":312514224,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.806893,35.6365345 ]
+    },
+    "properties": {
+    "id":318616864,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.802408,35.640422 ]
+    },
+    "properties": {
+    "id":331776856,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8085116667,35.6388033333 ]
+    },
+    "properties": {
+    "id":332079954,
+    "place_guess":"Holly Springs, NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8071583333,35.6352533333 ]
+    },
+    "properties": {
+    "id":332080004,
+    "place_guess":"Wake County, US-NC, US",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8061537221,35.6404546839 ]
+    },
+    "properties": {
+    "id":332824333,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8078907877,35.6351624914 ]
+    },
+    "properties": {
+    "id":333050973,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8084957063,35.6388208559 ]
+    },
+    "properties": {
+    "id":333467026,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Canada Goose",
+    "scientific_name":"Branta canadensis",
+    "common_name":"Canada Goose",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7089
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8062931,35.6346218 ]
+    },
+    "properties": {
+    "id":333468222,
+    "place_guess":"Natures Reach, Holly Springs, NC 27540, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.80748,35.6405866667 ]
+    },
+    "properties": {
+    "id":334277893,
+    "place_guess":"Stephen Springs Ct, Holly Springs, NC, US",
+    "species_guess":"Ruddy Duck",
+    "scientific_name":"Oxyura jamaicensis",
+    "common_name":"Ruddy Duck",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":850859
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8057739722,35.6424129722 ]
+    },
+    "properties": {
+    "id":334755448,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.808603,35.6387379722 ]
+    },
+    "properties": {
+    "id":336511025,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Mallard",
+    "scientific_name":"Anas platyrhynchos",
+    "common_name":"Mallard",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":6930
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.8079129722,35.6398969722 ]
+    },
+    "properties": {
+    "id":336511222,
+    "place_guess":"Holly Springs, NC, USA",
+    "species_guess":"Redhead",
+    "scientific_name":"Aythya americana",
+    "common_name":"Redhead",
+    "iconic_taxon_name":"Aves",
+    "taxon_id":7056
+    }
+  }
+]
+}
