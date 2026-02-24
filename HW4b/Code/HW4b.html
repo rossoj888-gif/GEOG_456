@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+        table {
+  font-family: Tahoma, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+</head>
+<script src="../Data/NP.js"></script>
+<body>
+
+<h2 style="font-family: 'Verdana', sans-serif; color: #0b6827;" >US National Parks</h2>
+<h4 style="font-family: 'Verdana', sans-serif; color: #25a517;">Yearly Recreational Visits from 1979 to 2024 </h4>
+
+<table id="mytable">
+  <tr>
+    <th>Name</th>
+    <th>Year</th>
+    <th>Visitations</th>
+  </tr>
+</table>
+
+<script>
+var x = document.getElementById('mytable');
+
+for (var i = 0; i < data.features.length; i++) {
+
+  var myNewRow = document.createElement('tr');
+  var myNewCell1 = document.createElement('td');  
+  var myNewCell2 = document.createElement('td');
+  var myNewCell3 = document.createElement('td');
+
+  myNewCell1.innerHTML = data.features[i].properties.ParkName;
+  myNewCell2.innerHTML = data.features[i].properties.Year;
+  myNewCell3.innerHTML = data.features[i].properties.RecreationVisits;
+
+if (data.features[i].properties.Year >= 1979 && data.features[i].properties.Year <= 1989) {
+  myNewCell2.style.backgroundColor = "#FF8080";   
+
+} else if (data.features[i].properties.Year >= 1990 && data.features[i].properties.Year <= 1999) {
+  myNewCell2.style.backgroundColor = "#FFC880";  
+
+} else if (data.features[i].properties.Year >= 2000 && data.features[i].properties.Year <= 2009) {
+  myNewCell2.style.backgroundColor = "#FFFB80";  
+
+} else if (data.features[i].properties.Year >= 2010 && data.features[i].properties.Year <= 2019) {
+  myNewCell2.style.backgroundColor = "#A6FF80";   
+
+} else if (data.features[i].properties.Year >= 2020 && data.features[i].properties.Year <= 2024) {
+  myNewCell2.style.backgroundColor = "#80FFCA";  
+}
+
+  myNewRow.append(myNewCell1);
+  myNewRow.append(myNewCell2);
+  myNewRow.append(myNewCell3);
+  x.append(myNewRow);
+}
+
+
+</script>
+
+</body>
+</html>
