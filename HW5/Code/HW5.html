@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NP Parks</title>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
+    
+    <script src="../Data/NP_wide.js"></script>
+
+    <style>
+        #map { height: 400px;
+            width: 900px;
+            background-color: lightslategray;
+            text-align: center; 
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>National Park Yearly Visitations 1979-2024</h1>
+    <h2 id="theYear">Year:</h2>
+    
+        <input id="yearSlider" type = "range" name = "year" min = "1979" max = "2024" oninput="moveSlider(this.value)">
+    <div id="map"></div>
+    
+    <Script>
+
+        var map = L.map('map').setView([39.8283, -100.5795], 3);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        
+    let size = 20   
+    function circleIcon (size){
+        var geojsonMarkerOptions = {
+        radius: size,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+        };
+        return geojsonMarkerOptions;
+    }
+
+    var geojson = L.geoJSON();
+
+    function moveSlider(value) {
+        map.removeLayer(geojson);
+        document.getElementById('theYear').innerHTML = 'Year ' + value;
+        geojson = L.geoJSON(data, {
+            pointToLayer: function(feature, latlng) {
+                var size = feature.properties[value]/500000;
+                return L.circleMarker(latlng, circleIcon(size))
+                .bindPopup(feature.properties.ParkName + ' ' + feature.properties[value]
+            );
+            }
+        });
+        map.addLayer(geojson);
+    }
+    moveSlider(1979)
+    window.onload = function() {
+        document.getElementById('yearSlider').value = 1979;  
+    };
+
+    </Script>
+
+</body>
+</html>
