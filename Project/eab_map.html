@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAB Spread Model</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    <script src="./eab_leaflet_data.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f0f4f0;
+            color: #2d3a2d;
+        }
+
+        /* ── Header ── */
+        #header {
+            padding: 18px 28px 14px;
+            background: #f0f4f0;
+            border-bottom: 1px solid #c8d8c0;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+        #header h1 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3a2d;
+            letter-spacing: 0.01em;
+        }
+        #header p {
+            font-size: 12px;
+            color: #7a9470;
+            font-weight: 400;
+        }
+
+        /* ── Map ── */
+        #map {
+            width: 100%;
+            height: calc(100vh - 116px);
+        }
+
+        /* ── Footer controls ── */
+        #footer {
+            height: 58px;
+            background: #f0f4f0;
+            border-top: 1px solid #c8d8c0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 0 28px;
+        }
+
+        #year-display {
+            font-size: 13px;
+            font-weight: 600;
+            color: #3a6b35;
+            min-width: 36px;
+        }
+
+        #year-slider {
+            flex: 1;
+            max-width: 320px;
+            -webkit-appearance: none;
+            height: 3px;
+            border-radius: 2px;
+            background: #c8d8c0;
+            outline: none;
+            cursor: pointer;
+        }
+        #year-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #3a6b35;
+            cursor: pointer;
+            border: 2px solid #f0f4f0;
+            box-shadow: 0 0 0 1px #3a6b35;
+        }
+        #year-slider::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #3a6b35;
+            cursor: pointer;
+            border: 2px solid #f0f4f0;
+        }
+
+        #play-btn {
+            background: none;
+            border: 1px solid #7a9470;
+            border-radius: 6px;
+            color: #3a6b35;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: inherit;
+            padding: 5px 14px;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+        }
+        #play-btn:hover { background: #ddebd5; }
+
+        .divider {
+            width: 1px;
+            height: 20px;
+            background: #c8d8c0;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 14px;
+        }
+        .tog {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #5a7a55;
+            cursor: pointer;
+            user-select: none;
+        }
+        .tog input[type=checkbox] {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid #7a9470;
+            border-radius: 3px;
+            background: white;
+            cursor: pointer;
+            position: relative;
+        }
+        .tog input[type=checkbox]:checked {
+            background: #3a6b35;
+            border-color: #3a6b35;
+        }
+        .tog input[type=checkbox]:checked::after {
+            content: '';
+            position: absolute;
+            left: 2px; top: -1px;
+            width: 5px; height: 9px;
+            border: 2px solid white;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+
+        .stat-group {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+        }
+        .stat {
+            font-size: 11px;
+            color: #7a9470;
+            text-align: right;
+        }
+        .stat span {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3a6b35;
+        }
+
+        /* ── Leaflet overrides ── */
+        .leaflet-control-layers {
+            border: 1px solid #c8d8c0 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(45,58,45,0.08) !important;
+            background: #f8faf6 !important;
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 12px !important;
+            color: #2d3a2d !important;
+        }
+        .leaflet-control-layers-toggle {
+            background-color: #f8faf6 !important;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px !important;
+            box-shadow: 0 2px 12px rgba(45,58,45,0.15) !important;
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 12px !important;
+            color: #2d3a2d !important;
+            border: 1px solid #c8d8c0 !important;
+        }
+        .leaflet-popup-tip { background: white !important; }
+        .leaflet-bar a {
+            color: #3a6b35 !important;
+            border-bottom: 1px solid #c8d8c0 !important;
+        }
+        .leaflet-bar {
+            border: 1px solid #c8d8c0 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(45,58,45,0.08) !important;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Emerald Ash Borer — Projected Spread</h1>
+    <p>Baseline SDM &middot; 3,147 GBIF records &middot; 2025–2040</p>
+</div>
+
+<div id="map"></div>
+
+<div id="footer">
+    <span id="year-display">2025</span>
+    <input type="range" id="year-slider" min="0" max="5" step="1" value="0"
+        oninput="moveSlider(this.value)">
+    <button id="play-btn" onclick="togglePlay()">&#9654; Play</button>
+
+    <div class="divider"></div>
+
+    <div class="toggle-group">
+        <label class="tog">
+            <input type="checkbox" id="tog-suit" checked onchange="moveSlider(currentIdx)">
+            Suitability
+        </label>
+        <label class="tog">
+            <input type="checkbox" id="tog-occ" checked onchange="moveSlider(currentIdx)">
+            GBIF records
+        </label>
+    </div>
+
+    <div class="stat-group">
+        <div class="stat">Suitable cells<span id="st-cells">—</span></div>
+        <div class="stat">High risk<span id="st-high">—</span></div>
+        <div class="stat">Records<span id="st-occ">—</span></div>
+    </div>
+</div>
+
+<script>
+    var map = L.map('map', { zoomControl: true }).setView([40, -95], 4);
+
+    // Basemaps
+    var cartoDB = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    }).addTo(map);
+
+    var cartoDBDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    });
+
+    var Esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri'
+    });
+
+    var years = [2025, 2027, 2030, 2033, 2037, 2040];
+    var currentIdx = 0;
+    var playTimer = null;
+    var isPlaying = false;
+
+    var gridLayer = L.layerGroup().addTo(map);
+    var occLayer  = L.layerGroup().addTo(map);
+    var R = 0.25;
+
+    // Environmental green-to-amber-to-red ramp
+    function suitColor(s) {
+        if (s > 0.85) return '#7c2d12';
+        if (s > 0.70) return '#c2410c';
+        if (s > 0.55) return '#d97706';
+        if (s > 0.40) return '#ca8a04';
+        if (s > 0.25) return '#65a30d';
+        return '#86efac';
+    }
+
+    function moveSlider(idx) {
+        idx = parseInt(idx);
+        currentIdx = idx;
+        document.getElementById('year-slider').value = idx;
+
+        var year = years[idx];
+        document.getElementById('year-display').textContent = year;
+
+        var showSuit = document.getElementById('tog-suit').checked;
+        var showOcc  = document.getElementById('tog-occ').checked;
+
+        // Suitability grid
+        gridLayer.clearLayers();
+        var nCells = 0, nHigh = 0;
+        if (showSuit) {
+            var cells = data.years[idx].cells;
+            for (var i = 0; i < cells.length; i++) {
+                var c = cells[i];
+                if (c.s < 0.05) continue;
+                nCells++;
+                if (c.s > 0.7) nHigh++;
+                L.rectangle(
+                    [[c.lat - R, c.lon - R], [c.lat + R, c.lon + R]],
+                    {
+                        color: 'none',
+                        fillColor: suitColor(c.s),
+                        fillOpacity: 0.12 + c.s * 0.62,
+                        interactive: true
+                    }
+                )
+                .bindPopup(
+                    '<b>' + (c.s * 100).toFixed(0) + '% suitability</b><br>' +
+                    c.lat.toFixed(2) + '\u00b0N, ' + Math.abs(c.lon).toFixed(2) + '\u00b0W'
+                )
+                .addTo(gridLayer);
+            }
+        }
+        document.getElementById('st-cells').textContent = nCells.toLocaleString();
+        document.getElementById('st-high').textContent  = nHigh.toLocaleString();
+
+        // Occurrence points
+        occLayer.clearLayers();
+        var nOcc = 0;
+        if (showOcc) {
+            var occs = data.occurrences;
+            for (var j = 0; j < occs.length; j++) {
+                var o = occs[j];
+                if (o.year > Math.min(year, 2025)) continue;
+                nOcc++;
+                L.circleMarker([o.lat, o.lon], {
+                    radius: 3,
+                    fillColor: '#166534',
+                    color: '#14532d',
+                    weight: 0.5,
+                    fillOpacity: 0.75
+                })
+                .bindPopup('GBIF record &mdash; ' + o.year)
+                .addTo(occLayer);
+            }
+        }
+        document.getElementById('st-occ').textContent = nOcc.toLocaleString();
+    }
+
+    function togglePlay() {
+        if (isPlaying) {
+            clearInterval(playTimer);
+            isPlaying = false;
+            document.getElementById('play-btn').innerHTML = '&#9654; Play';
+        } else {
+            isPlaying = true;
+            document.getElementById('play-btn').innerHTML = '&#9646;&#9646; Pause';
+            if (currentIdx >= years.length - 1) moveSlider(0);
+            playTimer = setInterval(function() {
+                if (currentIdx >= years.length - 1) {
+                    clearInterval(playTimer);
+                    isPlaying = false;
+                    document.getElementById('play-btn').innerHTML = '&#9654; Play';
+                    return;
+                }
+                moveSlider(currentIdx + 1);
+            }, 1100);
+        }
+    }
+
+    // Layer control
+    var baseMaps = {
+        "Light":      cartoDB,
+        "Dark":       cartoDBDark,
+        "Topographic": Esri
+    };
+    var overlayMaps = {
+        "Predicted suitability": gridLayer,
+        "GBIF occurrences":      occLayer
+    };
+    L.control.layers(baseMaps, overlayMaps, { position: 'topright' }).addTo(map);
+
+    // Init
+    moveSlider(0);
+    window.onload = function() {
+        document.getElementById('year-slider').value = 0;
+    };
+</script>
+</body>
+</html>
