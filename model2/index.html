@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAB Spread Model</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Static data files — always present -->
+    <script src="./data/manifest.js"></script>
+    <script src="./data/suitability.js"></script>
+    <script src="./data/detections.js"></script>
+
+    <!-- Per-year spread files injected here by export_webmap.R -->
+    <script src="./data/spread_2003.js"></script>
+    <script src="./data/spread_2004.js"></script>
+    <script src="./data/spread_2005.js"></script>
+    <script src="./data/spread_2006.js"></script>
+    <script src="./data/spread_2007.js"></script>
+    <script src="./data/spread_2008.js"></script>
+    <script src="./data/spread_2009.js"></script>
+    <script src="./data/spread_2010.js"></script>
+    <script src="./data/spread_2011.js"></script>
+    <script src="./data/spread_2012.js"></script>
+    <script src="./data/spread_2013.js"></script>
+    <script src="./data/spread_2014.js"></script>
+    <script src="./data/spread_2015.js"></script>
+    <script src="./data/spread_2016.js"></script>
+    <script src="./data/spread_2017.js"></script>
+    <script src="./data/spread_2018.js"></script>
+    <script src="./data/spread_2019.js"></script>
+    <script src="./data/spread_2020.js"></script>
+    <script src="./data/spread_2021.js"></script>
+    <script src="./data/spread_2022.js"></script>
+    <script src="./data/spread_2023.js"></script>
+    <script src="./data/spread_2024.js"></script>
+    <script src="./data/spread_2025.js"></script>
+    <script src="./data/spread_2026.js"></script>
+    <script src="./data/spread_2027.js"></script>
+    <script src="./data/spread_2028.js"></script>
+    <script src="./data/spread_2029.js"></script>
+    <script src="./data/spread_2030.js"></script>
+    <script src="./data/spread_2031.js"></script>
+    <script src="./data/spread_2032.js"></script>
+    <script src="./data/spread_2033.js"></script>
+    <script src="./data/spread_2034.js"></script>
+    <script src="./data/spread_2035.js"></script>
+    <script src="./data/spread_2036.js"></script>
+    <script src="./data/spread_2037.js"></script>
+    <script src="./data/spread_2038.js"></script>
+    <script src="./data/spread_2039.js"></script>
+    <script src="./data/spread_2040.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f0f4f0;
+            color: #2d3a2d;
+        }
+
+        #header {
+            padding: 18px 28px 14px;
+            background: #f0f4f0;
+            border-bottom: 1px solid #c8d8c0;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+        #header h1 { font-size: 15px; font-weight: 600; color: #2d3a2d; letter-spacing: 0.01em; }
+        #header p  { font-size: 12px; color: #7a9470; font-weight: 400; }
+        #status-badge {
+            margin-left: auto; font-size: 11px; font-weight: 500;
+            padding: 3px 9px; border-radius: 12px; border: 1px solid; white-space: nowrap;
+        }
+        .badge-observed  { color: #3a6b35; border-color: #7a9470; background: #ddebd5; }
+        .badge-projected { color: #92400e; border-color: #d97706; background: #fef3c7; }
+
+        #map { width: 100%; height: calc(100vh - 118px); }
+
+        #footer {
+            height: 58px; background: #f0f4f0; border-top: 1px solid #c8d8c0;
+            display: flex; align-items: center; gap: 20px; padding: 0 28px;
+        }
+        #year-display { font-size: 13px; font-weight: 600; color: #3a6b35; min-width: 36px; }
+
+        #year-slider {
+            flex: 1; max-width: 320px; -webkit-appearance: none;
+            height: 3px; border-radius: 2px; background: #c8d8c0; outline: none; cursor: pointer;
+        }
+        #year-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%;
+            background: #3a6b35; cursor: pointer;
+            border: 2px solid #f0f4f0; box-shadow: 0 0 0 1px #3a6b35;
+        }
+        #year-slider.projected::-webkit-slider-thumb {
+            background: #d97706; box-shadow: 0 0 0 1px #d97706;
+        }
+        #year-slider::-moz-range-thumb {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: #3a6b35; cursor: pointer; border: 2px solid #f0f4f0;
+        }
+
+        #play-btn {
+            background: none; border: 1px solid #7a9470; border-radius: 6px;
+            color: #3a6b35; font-size: 12px; font-weight: 500; font-family: inherit;
+            padding: 5px 14px; cursor: pointer; transition: background 0.15s; white-space: nowrap;
+        }
+        #play-btn:hover { background: #ddebd5; }
+
+        .divider { width: 1px; height: 20px; background: #c8d8c0; }
+
+        .toggle-group { display: flex; gap: 14px; }
+        .tog {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 12px; color: #5a7a55; cursor: pointer; user-select: none;
+        }
+        .tog input[type=checkbox] {
+            -webkit-appearance: none; width: 14px; height: 14px;
+            border: 1.5px solid #7a9470; border-radius: 3px;
+            background: white; cursor: pointer; position: relative;
+        }
+        .tog input[type=checkbox]:checked { background: #3a6b35; border-color: #3a6b35; }
+        .tog input[type=checkbox]:checked::after {
+            content: ''; position: absolute; left: 2px; top: -1px;
+            width: 5px; height: 9px; border: 2px solid white;
+            border-top: none; border-left: none; transform: rotate(45deg);
+        }
+
+        .stat-group { margin-left: auto; display: flex; gap: 20px; }
+        .stat { font-size: 11px; color: #7a9470; text-align: right; }
+        .stat span { display: block; font-size: 13px; font-weight: 600; color: #3a6b35; }
+
+        .leaflet-control-layers {
+            border: 1px solid #c8d8c0 !important; border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(45,58,45,0.08) !important;
+            background: #f8faf6 !important; font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 12px !important; color: #2d3a2d !important;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px !important; box-shadow: 0 2px 12px rgba(45,58,45,0.15) !important;
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 12px !important; color: #2d3a2d !important;
+            border: 1px solid #c8d8c0 !important;
+        }
+        .leaflet-popup-tip { background: white !important; }
+        .leaflet-bar a { color: #3a6b35 !important; border-bottom: 1px solid #c8d8c0 !important; }
+        .leaflet-bar {
+            border: 1px solid #c8d8c0 !important; border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(45,58,45,0.08) !important; overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Emerald Ash Borer &mdash; Projected Spread</h1>
+    <p>MaxEnt SDM &middot; BIO6, BIO4, BIO12 &middot; ash-weighted background</p>
+    <span id="status-badge" class="badge-observed">Observed</span>
+</div>
+
+<div id="map"></div>
+
+<div id="footer">
+    <span id="year-display">—</span>
+    <input type="range" id="year-slider" min="0" max="1" step="1" value="0"
+        oninput="moveSlider(this.value)">
+    <button id="play-btn" onclick="togglePlay()">&#9654; Play</button>
+
+    <div class="divider"></div>
+
+    <div class="toggle-group">
+        <label class="tog">
+            <input type="checkbox" id="tog-suit" checked onchange="toggleSuit()"> Suitability
+        </label>
+        <label class="tog">
+            <input type="checkbox" id="tog-spread" checked onchange="moveSlider(currentIdx)"> Spread
+        </label>
+        <label class="tog">
+            <input type="checkbox" id="tog-occ" checked onchange="moveSlider(currentIdx)"> Detections
+        </label>
+    </div>
+
+    <div class="stat-group">
+        <div class="stat">Invaded area<span id="st-area">—</span></div>
+        <div class="stat">Detections<span id="st-occ">—</span></div>
+    </div>
+</div>
+
+<script>
+    // ── Read config from manifest.js ──────────────────────────────────────────
+    var OBS_END   = MANIFEST.obs_end;
+    var SIM_END   = MANIFEST.sim_end;
+    var SIM_START = MANIFEST.sim_start;
+    var ALL_YEARS = MANIFEST.export_years;
+
+    var currentIdx = 0;
+    var isPlaying  = false;
+    var playTimer  = null;
+
+    // ── Map ───────────────────────────────────────────────────────────────────
+    var map = L.map('map', { zoomControl: true, preferCanvas: true })
+               .setView([40, -88], 5);
+
+    var cartoDB = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+        { maxZoom: 19, attribution: '&copy; OpenStreetMap &copy; CARTO' }
+    ).addTo(map);
+
+    var cartoDBDark = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        { maxZoom: 19, attribution: '&copy; OpenStreetMap &copy; CARTO' }
+    );
+
+    var esriTopo = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+        { attribution: 'Tiles &copy; Esri' }
+    );
+
+    L.control.layers(
+        { 'Light': cartoDB, 'Dark': cartoDBDark, 'Topographic': esriTopo },
+        {}, { position: 'topright' }
+    ).addTo(map);
+
+    // ── Layer groups ──────────────────────────────────────────────────────────
+    var suitGroup   = L.layerGroup().addTo(map);
+    var spreadGroup = L.layerGroup().addTo(map);
+    var occGroup    = L.layerGroup().addTo(map);
+
+    // Colour ramp matching R palette: teal → yellow → orange → red
+    function suitColor(s) {
+        // Interpolate between stops: [0.0 → #1a3a4a] [0.2 → #0d6e8a]
+        // [0.4 → #00b4a0] [0.55 → #7dde82] [0.7 → #ffd60a]
+        // [0.85 → #ff6b35] [1.0 → #c9184a]
+        var stops = [
+            [0.00, [26,  58,  74]],
+            [0.20, [13, 110, 138]],
+            [0.40, [ 0, 180, 160]],
+            [0.55, [125, 222, 130]],
+            [0.70, [255, 214,  10]],
+            [0.85, [255, 107,  53]],
+            [1.00, [201,  24,  74]]
+        ];
+        for (var i = 0; i < stops.length - 1; i++) {
+            var t0 = stops[i][0],   c0 = stops[i][1];
+            var t1 = stops[i+1][0], c1 = stops[i+1][1];
+            if (s <= t1) {
+                var t = (s - t0) / (t1 - t0);
+                var r = Math.round(c0[0] + t * (c1[0] - c0[0]));
+                var g = Math.round(c0[1] + t * (c1[1] - c0[1]));
+                var b = Math.round(c0[2] + t * (c1[2] - c0[2]));
+                return 'rgb(' + r + ',' + g + ',' + b + ')';
+            }
+        }
+        return 'rgb(201,24,74)';
+    }
+
+    // ── Load suitability from SUIT variable (suitability.js) ─────────────────
+    L.geoJSON(SUIT, {
+        style: function(f) {
+            var s = f.properties.suit;
+            return {
+                fillColor:   suitColor(s),
+                fillOpacity: 0.12 + s * 0.62,
+                color:       'none',
+                weight:      0
+            };
+        },
+        onEachFeature: function(f, layer) {
+            layer.bindPopup(
+                '<b>' + (f.properties.suit * 100).toFixed(0) + '% suitability</b><br>' +
+                'Habitat suitability index'
+            );
+        }
+    }).addTo(suitGroup);
+
+    function toggleSuit() {
+        if (document.getElementById('tog-suit').checked) map.addLayer(suitGroup);
+        else map.removeLayer(suitGroup);
+    }
+
+    // ── Load detections from DETECTIONS variable (detections.js) ─────────────
+    var allDetections = DETECTIONS.features;
+
+    // ── Main update function ──────────────────────────────────────────────────
+    function moveSlider(idx) {
+        idx = parseInt(idx);
+        currentIdx = idx;
+        document.getElementById('year-slider').value = idx;
+
+        var year  = ALL_YEARS[idx];
+        var isObs = year <= OBS_END;
+
+        document.getElementById('year-display').textContent = year;
+
+        var badge = document.getElementById('status-badge');
+        badge.textContent = isObs ? 'Observed' : 'Projected';
+        badge.className   = isObs ? 'badge-observed' : 'badge-projected';
+        document.getElementById('year-slider').className = isObs ? '' : 'projected';
+
+        var showSpread = document.getElementById('tog-spread').checked;
+        var showOcc    = document.getElementById('tog-occ').checked;
+
+        // ── Spread layer — read from SPREAD_YYYY variable ─────────────────────
+        spreadGroup.clearLayers();
+        var nCells = 0;
+        if (showSpread) {
+            var varName = 'SPREAD_' + year;
+            var fc = window[varName];   // access the global variable by name
+            if (fc) {
+                nCells = fc.features.length;
+                L.geoJSON(fc, {
+                    style: {
+                        fillColor:   isObs ? '#3fb950' : '#ff6b35',
+                        fillOpacity: isObs ? 0.55 : 0.60,
+                        color:       isObs ? '#2ea043' : '#c9184a',
+                        weight:      0.3
+                    },
+                    onEachFeature: function(f, layer) {
+                        layer.bindPopup(
+                            isObs
+                              ? '<b>Confirmed invaded</b><br>Observed &le; ' + year
+                              : '<b>Projected invaded</b><br>Simulated year: ' + year
+                        );
+                    }
+                }).addTo(spreadGroup);
+            }
+        }
+        document.getElementById('st-area').textContent =
+            nCells > 0 ? '~' + Math.round(nCells * 196).toLocaleString() + ' km&sup2;' : '—';
+
+        // ── Detections — filter cumulative up to current year ─────────────────
+        occGroup.clearLayers();
+        var nOcc   = 0;
+        var cutoff = Math.min(year, OBS_END);
+        if (showOcc) {
+            for (var j = 0; j < allDetections.length; j++) {
+                var d = allDetections[j];
+                if (d.properties.year > cutoff) continue;
+                nOcc++;
+                var coords = d.geometry.coordinates;
+                L.circleMarker([coords[1], coords[0]], {
+                    radius: 3, fillColor: '#166534', color: '#14532d',
+                    weight: 0.5, fillOpacity: 0.75
+                })
+                .bindPopup('Detection &mdash; ' + d.properties.year)
+                .addTo(occGroup);
+            }
+        }
+        document.getElementById('st-occ').textContent = nOcc.toLocaleString();
+    }
+
+    // ── Playback ──────────────────────────────────────────────────────────────
+    function togglePlay() {
+        if (isPlaying) {
+            clearInterval(playTimer);
+            isPlaying = false;
+            document.getElementById('play-btn').innerHTML = '&#9654; Play';
+        } else {
+            isPlaying = true;
+            document.getElementById('play-btn').innerHTML = '&#9646;&#9646; Pause';
+            if (currentIdx >= ALL_YEARS.length - 1) moveSlider(0);
+            playTimer = setInterval(function() {
+                if (currentIdx >= ALL_YEARS.length - 1) {
+                    clearInterval(playTimer);
+                    isPlaying = false;
+                    document.getElementById('play-btn').innerHTML = '&#9654; Play';
+                    return;
+                }
+                moveSlider(currentIdx + 1);
+            }, 900);
+        }
+    }
+
+    // ── Keyboard shortcuts ────────────────────────────────────────────────────
+    document.addEventListener('keydown', function(e) {
+        if (e.code === 'Space')      { e.preventDefault(); togglePlay(); }
+        if (e.code === 'ArrowRight') moveSlider(Math.min(currentIdx + 1, ALL_YEARS.length - 1));
+        if (e.code === 'ArrowLeft')  moveSlider(Math.max(currentIdx - 1, 0));
+    });
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    document.getElementById('year-slider').max = ALL_YEARS.length - 1;
+    var startIdx = ALL_YEARS.indexOf(OBS_END);
+    moveSlider(startIdx >= 0 ? startIdx : 0);
+</script>
+</body>
+</html>
