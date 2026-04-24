@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Cascades Glacier Retreat Example</title>
+    <style>
+        body {
+
+          margin: 0; 
+          padding: 0; 
+          overflow-x: hidden; 
+          background-color: black; 
+          color: white;
+          
+        }
+        .row {
+
+          width: 95vw;
+          background-color: rgb(28, 28, 28); 
+          padding: 20px;
+          border: 1px solid black;
+          display: flex;
+        }
+        
+        .column {
+          flex: 50%;
+          padding: 10px;
+          overflow: hidden; 
+        }
+
+        img{
+            position: absolute;
+        }
+
+        .visible {
+            visibility: visible;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>North Cascades Glacier Retreat Example </h1>
+    <p> Squak Glacier resides on the southeast slope of Mount Baker, part of the North Cascades in Washington state. Like many of the glaaciers on Mount Baker, Squak has been receding significantly since 1984, retreating more than 420 m since then. In the respective images, the glacial retreat is easily recognizable, with several bedrock areas emerging from what used to be frozen over. Squak glacier, like many other glaciers among the North Cascades will likely continue tor retreat upslope, largely as a response to climate change. </p>
+    <div id="container" onclick="myFunction()"> 
+        <!-- notice that I added an onclick listener in the container div -->
+    <img id="after" class="hidden" src="./images/Squak2017.png" alt="" height="400px">
+    <img id='between' class="hidden" src="./images/Squak2013.png" alt="" height="400px">
+    <img id='before' class="visible" src="./images/Squak2006.png" alt="" height="400px">
+    </div>
+    <script>
+
+        function myFunction(){
+    visibleImgs = document.querySelector('.visible')
+    if (visibleImgs.id == 'before') {
+        document.getElementById('between').className = 'visible';
+    } else if (visibleImgs.id == 'between') {
+        document.getElementById('after').className = 'visible';
+    } else {
+        document.getElementById('before').className = 'visible';
+    }
+    visibleImgs.className = 'hidden';
+}
+    </script>
+    
+</body>
+</html>

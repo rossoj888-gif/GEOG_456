@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Change</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        font-size:20px;
+        height:100vh;
+        overflow: hidden;
+    
+        
+    }
+    div#image_container{
+        width: 100%;
+        max-width: 600px;
+        height: 75vh;
+        position: fixed;
+        top: 80px;
+        
+    }
+    img{
+        width: 100%;
+        position: absolute;
+    }
+
+    #before{
+        z-index: 1;
+        opacity: 1;
+    }
+    #after{
+        z-index: 3;
+        opacity: 0;
+    }
+#myText{
+    color: aliceblue;
+    /* bottom: 0px; */
+    display: grid;
+    width: 100vw;
+    max-width: 600px;
+    height: 25vh;
+    top: calc(75vh + 5px);;
+    /* height: 100vh; */
+    grid-template-rows: 100%;
+    background-color: rgb(35, 95, 95, .5);
+    position: fixed;
+    overflow-y:scroll;
+    /* right: 0%; */
+    /* margin-left: 50%; */
+}
+#yAfter{
+
+    background-color: rgb(35, 95, 95, .5);
+    /* color: brown; */
+}
+#myP{
+    top:0;
+    position: fixed;
+    color: aliceblue;
+}
+h3{
+    color: white;
+    position: fixed;
+    font-size: 20px;
+    top: 30px;
+}
+</style>
+<body>
+    <h3 id="h3scroll">The onscroll Event</h3><br>
+
+    <p id="myP" style="position:fixed">
+        Scroll to see changes</p> <br>
+    <div id="image_container">
+        <img id="after"  src="./images/v2010.jpg" alt="">
+        <img id="before" src="./images/v1937.jpg" alt="">
+
+    </div>
+    <div id="myText">
+    <div id="yBefore">
+        <h1>Year 1937</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sint corporis reiciendis quaerat alias quibusdam quasi. Possimus numquam ex delectus illum impedit provident quo deserunt, temporibus ipsam repudiandae non vitae.</p>
+        
+    </div>
+    <div id="yAfter">
+        <h1>Year 2010</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, sint corporis reiciendis quaerat alias quibusdam quasi. Possimus numquam ex delectus illum impedit provident quo deserunt, temporibus ipsam repudiandae non vitae.</p>
+
+    </div>
+    </div>
+<script>
+
+ var maxY = document.getElementById('myText').scrollHeight - document.getElementById('myText').clientHeight;
+
+
+    // var maxY = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    // // The previous is a good way of calculating the maximum vertical scrolling. 
+
+    document.getElementById('myText').onscroll = function() {myFunction()}; // when you scroll the myFunction will be called. 
+    function myFunction() {
+    var opacity = document.getElementById('myText').scrollTop / maxY;
+    document.getElementById('after').style.opacity = opacity;
+    document.getElementById("h3scroll").innerText = "  MaxY = " + maxY +  "   Scroll Y = " + document.getElementById('myText').scrollTop + "  Scroll Y / Max Y = " + document.getElementById('myText').scrollTop / maxY;
+}
+    
+function replaceTop(){
+    document.getElementById("myText").style.top = document.getElementById('after').offsetHeight + 80 + 'px'
+}
+       window.addEventListener('resize', function() {
+        replaceTop()
+        maxY = document.getElementById('myText').scrollHeight - document.getElementById('myText').clientHeight;
+        })
+
+        // Trigger the resize event to initially set the width
+        window.dispatchEvent(new Event('resize'));
+
+        window.onload = function() {replaceTop()}
+
+    </script>
+</body>
+</html>

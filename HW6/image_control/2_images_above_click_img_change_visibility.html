@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+
+        .visible {
+            visibility: visible;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" onclick="myFunction()"> 
+        <!-- notice that I added an onclick listener in the container div -->
+    <img id="after" class="hidden" src="./images/v2010.jpg" alt="" height="400px">
+    <img id='before' class="visible" src="./images/v1937.jpg" alt="" height="400px">
+    </div>
+    <script>
+
+        function myFunction(){
+            visibleImgs = document.querySelector('.visible') // gets the img that is visible and saves it in a variable named visibleImgs
+            hiddenImgs = document.querySelector('.hidden').className = 'visible' // gets the img whose class is hidden and makes it class visible
+            visibleImgs.className = 'hidden' // makes the img that was class visible, class hidden
+        }
+    </script>
+</body>
+</html>
